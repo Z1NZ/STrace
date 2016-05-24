@@ -4,7 +4,7 @@
 
 [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/Z1NZ/Strace)
 
-[![Stories in Progress](https://badge.waffle.io/Z1NZ/Strace.svg?label=waffle%3Ain%20progress&title=In%20Progress)](http://waffle.io/Z1NZ/Strace.io)
+[![Stories in Progress](https://badge.waffle.io/Z1NZ/Strace.svg?label=waffle%3Ain%20progress&title=In%20Progress)](http://waffle.io/Z1NZ/Strace)
 
 
 - [ ] Gestion du argv[1] de lentree standard ==> verification binaire et execution
