@@ -1,13 +1,17 @@
-# STrace
-[![Ready Issues][Waffle badge]](https://waffle.io/Z1NZ/STrace)
-[![Join the chat at https://gitter.im/Z1NZ/STrace][Gitter badge]](https://gitter.im/Z1NZ/STrace])
-[![Travis Build](https://travis-ci.org/)](https://travis-ci.com/)
 
----------------------
 
-ffle badge]: https://badge.waffle.io/E2PZ/42SH.svg?label=ready&title=Ready
-[Gitter badge]: https://badges.gitter.im/Join%20Chat.svg
-[Travis badge]: https://travis-ci.com/
+
+
+
+![GITTER](http://i.imgur.com/8ZX0M4X.png)
+
+----
+
+Join our online chat at [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/Z1NZ/Strace)
+
+
+
+
 
 - [ ] Gestion du argv[1] de lentree standard ==> verification binaire et execution
 - [ ] Mettre une image sur le goinfre avec chmod 700 pour qu'on puisse travailler directement dessus
