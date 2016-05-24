@@ -1,7 +1,7 @@
 # STrace
 [![Ready Issues][Waffle badge]](https://waffle.io/Z1NZ/STrace)
-[![Join the chat at https://gitter.im/Z1NZ/STrace][Gitter badge]](https://gitter.im/E2PZ/42SH)
-[![Travis Build](https://travis-ci.org/E2PZ/Libft.svg?branch=master)](https://travis-ci.com/E2PZ/42SH)
+[![Join the chat at https://gitter.im/Z1NZ/STrace][Gitter badge]](https://gitter.im/Z1NZ/STrace])
+[![Travis Build](https://travis-ci.org/)](https://travis-ci.com/)
 
 ---------------------
 
