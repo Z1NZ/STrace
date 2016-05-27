@@ -1,0 +1,7 @@
+dependencies:
+  pre:
+    - pip install --upgrade pip
+
+test:
+  override:
+    - pi.test .
