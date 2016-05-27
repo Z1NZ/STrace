@@ -1,9 +1,12 @@
 language: python
 
-dependencies:
-  pre:
-    - pip install --upgrade pip
+sudo: required
 
-test:
-  override:
-    - pi.test .
+before_install:
+  - pip install --upgrade pip
+
+install:
+  - ./setup.sh
+
+script:
+  - pi.test .
