@@ -6,7 +6,7 @@ before_install:
   - pip install --upgrade pip
 
 install:
-  - ./setup.sh
+  - pi.test .
 
 script:
   - pi.test .
