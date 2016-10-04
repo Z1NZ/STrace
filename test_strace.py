@@ -25,3 +25,13 @@ def test_myoutput4(capsys): # or use "capfd" for fd-level
 	str1 = os.system("strace ls")
 	str2 = os.system("strace ls")
 	assert str1 == str2
+
+def test_myoutput4(capsys): # or use "capfd" for fd-level
+	str1 = os.system("strace ls")
+	str2 = os.system("strace ls")
+	assert str1 == str2
+
+def test_myoutput4(capsys): # or use "capfd" for fd-level
+	str1 = os.system("strace ls")
+	str2 = os.system("strace ls")
+	assert str1 == str2
