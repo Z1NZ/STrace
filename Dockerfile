@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y zsh git vim strace curl wget
+RUN apt-get update && apt-get install -y zsh git vim strace curl wget pytest
 
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | bash || true
 
