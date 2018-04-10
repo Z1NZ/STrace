@@ -3,13 +3,15 @@
 #include <sys/wait.h>
 #include <sys/user.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <signal.h>
 #include <errno.h>
 #include <string.h>
+#include "core.h"
+#include "syscall_tab.h"
 
-int core_unit(const char **path)
+int core_unit(char **path)
 {
-	long orig_rax;
 	int status;
 	int wait_val;
 	struct user_regs_struct uregs;
@@ -25,7 +27,9 @@ int core_unit(const char **path)
 		perror("fork");
 	else if (child == 0)
 	{
-		execvp(*path, path + 1, NULL);
+		printf("[%s][%s]", *path, *path+2);
+		if (execvp(path[1], path+2) == -1)
+			perror("execvp");
 		exit(0);
 	}
 	else // parent process
@@ -38,7 +42,8 @@ int core_unit(const char **path)
 			ptrace(PTRACE_SYSCALL, child, 0, 0);
 			waitpid(child, &status, 0);
 			ptrace(PTRACE_GETREGS, child, NULL, &uregs);
-			printf("The child made a system call %ld\n", (long)uregs.orig_rax);
+			printf("The child made a system call %ld\t", (long)uregs.orig_rax);
+			printf("%s\n", g_syscall_table[uregs.orig_rax].name);
 			if (uregs.orig_rax == 231)
 			{
 				printf("%d\n", counter);
