@@ -23,12 +23,13 @@ int core_unit(char **path)
 	kill_ret = 0;
 	counter = 0;
 	child = fork();
+
+	printf("[%s][%s]", *path, *(path+2));
 	if (child == -1)
 		perror("fork");
 	else if (child == 0)
 	{
-		printf("[%s][%s]", *path, *path+2);
-		if (execvp(path[1], path+2) == -1)
+		if (execvp(path[1], path+1) == -1)
 			perror("execvp");
 		exit(0);
 	}
@@ -41,7 +42,9 @@ int core_unit(char **path)
 		{
 			ptrace(PTRACE_SYSCALL, child, 0, 0);
 			waitpid(child, &status, 0);
-			ptrace(PTRACE_GETREGS, child, NULL, &uregs);
+			if(ptrace(PTRACE_GETREGS, child, NULL, &uregs) == -1)
+				break;
+			printf("status [%d] ==== ", status);
 			printf("The child made a system call %ld\t", (long)uregs.orig_rax);
 			printf("%s\n", g_syscall_table[uregs.orig_rax].name);
 			if (uregs.orig_rax == 231)
@@ -49,8 +52,6 @@ int core_unit(char **path)
 				printf("%d\n", counter);
 				exit(0);
 			}
-			ptrace(PTRACE_SYSCALL, child, 0, 0);
-			waitpid(child, &status, 0);
 			counter++;
 		}
 	}
