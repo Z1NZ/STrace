@@ -26,7 +26,6 @@ int core_unit(char **path, char **penv)
 
 
 	char *bin_path = get_binary_path(*(path +1));
-	child = fork();
 	if (child == -1)
 		perror("fork");
 	else if (child == 0)
