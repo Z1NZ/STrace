@@ -9,6 +9,7 @@
 #include <string.h>
 #include "core.h"
 #include "syscall_tab.h"
+#include "tools.h"
 
 int core_unit(char **path)
 {
@@ -24,7 +25,11 @@ int core_unit(char **path)
 	counter = 0;
 	child = fork();
 
-	printf("[%s][%s]", *path, *(path+2));
+	printf("[%s][%s]\n", *path, *(path+2));
+
+
+	printf("[%s]\n", get_binary_path(*(path +1)));
+
 	if (child == -1)
 		perror("fork");
 	else if (child == 0)
