@@ -20,4 +20,4 @@ RUN cd /tmp/subl && sh /tmp/subl/installer.sh
 RUN git clone git@github.com:Z1NZ/STrace.git /root/strace
 RUN cd /root/strace && git pull
 
-WORKDIR /root/42_ft_strace
+WORKDIR /root/strace

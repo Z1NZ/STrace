@@ -9,8 +9,9 @@
 #include <string.h>
 #include "core.h"
 #include "syscall_tab.h"
+#include "tools.h"
 
-int core_unit(char **path)
+int core_unit(char **path, char **penv)
 {
 	int status;
 	int wait_val;
@@ -22,16 +23,19 @@ int core_unit(char **path)
 	wait_val = 0;
 	kill_ret = 0;
 	counter = 0;
-	child = fork();
 
-	printf("[%s][%s]", *path, *(path+2));
+
+	char *bin_path = get_binary_path(*(path +1));
+	child = fork();
 	if (child == -1)
 		perror("fork");
 	else if (child == 0)
 	{
-		if (execvp(path[1], path+1) == -1)
-			perror("execvp");
-		exit(0);
+		if (execve(bin_path, path+1, penv ) == -1)
+		{
+			perror("execve");
+			exit(-1);
+		}
 	}
 	else // parent process
 	{
@@ -47,13 +51,11 @@ int core_unit(char **path)
 			printf("status [%d] ==== ", status);
 			printf("The child made a system call %ld\t", (long)uregs.orig_rax);
 			printf("%s\n", g_syscall_table[uregs.orig_rax].name);
-			if (uregs.orig_rax == 231)
-			{
-				printf("%d\n", counter);
-				exit(0);
-			}
 			counter++;
+			ptrace(PTRACE_SYSCALL, child, 0, 0);
+			waitpid(child, &status, 0);
 		}
 	}
+	free(bin_path);
 	return (0);
 }
