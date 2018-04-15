@@ -17,7 +17,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo ">>>>> Génération de ($(NAME))"
-	CC $(ALL_CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME) -g
+	$(CC) $(ALL_CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME) -g
 	@echo "Terminée"
 
 # To obtain object files
