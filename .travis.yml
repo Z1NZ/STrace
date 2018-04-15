@@ -1,3 +1,9 @@
+language: c
+sudo: false
+dist: trusty
+script:
+  - make
+
 matrix:
   include:
     # works on Precise and Trusty
