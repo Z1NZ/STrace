@@ -16,13 +16,7 @@ int core_unit(char **path, char **penv)
 	int status;
 	int wait_val;
 	struct user_regs_struct uregs;
-	pid_t 					child;
-	int						kill_ret;
-	int 					counter;
 
-	wait_val = 0;
-	kill_ret = 0;
-	counter = 0;
 
 
 	char *bin_path = get_binary_path(*(path +1));
@@ -51,7 +45,6 @@ int core_unit(char **path, char **penv)
 			printf("status [%d] ==== ", status);
 			printf("The child made a system call %ld\t", (long)uregs.orig_rax);
 			printf("%s\n", g_syscall_table[uregs.orig_rax].name);
-			counter++;
 			ptrace(PTRACE_SYSCALL, child, 0, 0);
 			waitpid(child, &status, 0);
 		}

@@ -2,7 +2,7 @@ language: c
 sudo: false
 dist: trusty
 script:
-  - scan-build make
+  - scan-build -v --status-bugs -analyze-headers make
 
 matrix:
   include:
