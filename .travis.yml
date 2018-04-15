@@ -10,6 +10,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -21,6 +23,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -32,6 +36,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -43,6 +49,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -51,10 +59,12 @@ matrix:
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
-    
+
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -67,6 +77,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -79,6 +91,8 @@ matrix:
     # works on Precise and Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - ubuntu-toolchain-r-test
@@ -91,6 +105,8 @@ matrix:
     # works on Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - llvm-toolchain-trusty-3.9
@@ -102,6 +118,8 @@ matrix:
     # works on Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - llvm-toolchain-trusty-4.0
@@ -113,6 +131,8 @@ matrix:
     # works on Trusty
     - os: linux
       addons:
+        coverity_scan:
+          branch_pattern: coverity_scan
         apt:
           sources:
             - llvm-toolchain-trusty-5.0
