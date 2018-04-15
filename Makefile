@@ -4,7 +4,7 @@ NAME = ft_strace
 
 ifeq ($(CC), gcc)
 #GCC flags
-ALL_CFLAGS = -Wall -Wextra -Werror
+ALL_CFLAGS = -Wall -Wextra -Werror -g
 endif
 
 ifeq ($(CC), clang)
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@echo ">>>>> Génération de ($(NAME))"
-	$(CC) $(ALL_CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME) -g
+	$(CC) $(ALL_CFLAGS) $(OBJS) $(INCLUDES) -o $(NAME)
 	@echo "Terminée"
 
 # To obtain object files

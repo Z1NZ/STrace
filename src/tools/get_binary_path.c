@@ -23,9 +23,7 @@ static char		*get_absolute_path(char *binary)
 		if (tmp == NULL)
 			break;
 		DIR *directory;
-		if (!(directory = opendir(tmp)))
-			continue;
-		else
+		if ((directory = opendir(tmp)))
 		{
 			struct dirent	*dp;
 			size_t			len;

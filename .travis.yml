@@ -2,6 +2,8 @@ language: c
 sudo: false
 dist: trusty
 script:
+  - scan-build -v make
+  - make fclean
   - scan-build -v --status-bugs -analyze-headers make
 
 matrix:
