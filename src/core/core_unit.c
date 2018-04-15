@@ -16,8 +16,7 @@ int core_unit(char **path, char **penv)
 	int status;
 	int wait_val;
 	struct user_regs_struct uregs;
-
-
+	pid_t 					child;
 
 	char *bin_path = get_binary_path(*(path +1));
 	child = fork();
