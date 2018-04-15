@@ -1,8 +1,16 @@
 #Library output
 NAME = ft_strace
 
+
+ifeq ($(CC), gcc)
+#GCC flags
+ALL_CFLAGS = -Wall -Wextra -Werror
+endif
+
+ifeq ($(CC), clang)
 #CLANG flags
 ALL_CFLAGS = -Wall -Wextra -Werror -Weverything
+endif
 
 #Includes directories
 INC = includes
