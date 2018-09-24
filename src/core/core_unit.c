@@ -3,7 +3,7 @@
 #include <sys/wait.h>
 #include <sys/user.h>
 #include <sys/syscall.h>
-#include <sys/reg.h>
+#include <stdio.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -12,8 +12,9 @@
 #include <string.h>
 #include "core.h"
 #include "tools.h"
+#include "process.h"
 
-# define ORIG_EAX 11
+#define ORIG_EAX 11
 
 int core_unit(char **path, char **penv)
 {
@@ -54,9 +55,10 @@ int core_unit(char **path, char **penv)
 				dprintf(2, "+++ exited with %d +++\n", WEXITSTATUS(status));
 				break;
 			}
-			long orig_eax = ptrace(PTRACE_PEEKUSER, child, 4 * ORIG_EAX, NULL);
+			// long orig_eax = ptrace(PTRACE_PEEKUSER, child, 4 * ORIG_EAX, NULL);
+			
 			// printf("%ld\n", orig_eax);
-			process_unit(uregs);
+			process_unit(child, uregs);
 			ptrace(PTRACE_SYSCALL, child, 0, 0);
 			waitpid(child, &status, 0);
 		}
